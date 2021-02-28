@@ -1,0 +1,22 @@
+<h1>新規投稿ページ</h1>
+
+<%# <form action ="/posts" method="post">
+  <input type="text" name="content">
+  <input type="submit" value="投稿する">
+</form> %>
+
+<%= form_with url: "/posts", method: :post, local: true do |form| %>
+  <%= form.text_field :content %>
+  <%= form.submit '投稿する' %>
+<% end %>
+
+<%# ヘルパーメソッドはRubyとして取り扱われるので、表示するために<%= %>
+<%# で囲んで使用します。 %> 
+
+<%# |form|の意味は？？ %>
+<%# →ブロック変数。|f|にして、f.text_fieldやf.submitにしてもエラーでなかった。 %>
+
+<%# イメージとしては、form.text_fieldやform.submitの処理を、箱（ブロック）にいれて、
+urlの場所に行き、postの処理をする。
+timesやeachのときもブロック変数は、中身の処理をまとめてブロックにいれて処理する
+というイメージ %>
